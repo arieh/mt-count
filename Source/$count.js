@@ -1,6 +1,6 @@
 /*
 ---
-description:
+description: A generic method to check the length of any type of variable.
 
 license: MIT-style
 
@@ -8,7 +8,7 @@ authors:
 - Arieh Glazer
 
 requires:
-- core/1.2.4 : [Class, Class.Extras, Element]
+- core/1.2.4 : [Core]
 
 provides: [$count]
 
@@ -35,12 +35,24 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE 
 */
-var $count = new Class({
-	Implements : [Options],
-	options : {
-		
-	},
-	initialize : function(options){
-		
-	}
-})
+function $count(obj){
+    if (!obj) return 0;
+	
+	switch($type(obj)){
+        case 'number'  : return obj; break;
+        
+        case 'function':
+            return (function(){}+"" == obj+"" || obj==$empty) ? 0 : 1; break;
+            
+        case 'object'  : return $H(obj).getLength(); break;
+        
+        case 'window'  :
+        case 'document':
+        case 'element' : return obj.getChildren().length;
+    }
+	
+    return (obj.length) ?
+        obj.length :
+        ($type(+obj)) ? +obj : 1;
+}
+

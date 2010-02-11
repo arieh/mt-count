@@ -1,7 +1,6 @@
-name:  
+name:  $count
 author:  arieh
 current:  0.1
-category:  
-tags:  []
-docs:  http://arieh.github.com/$count
-demo:  http://moodocs.net/arieh/$count/$count
+category: Utilities  
+tags:  [count,generic]
+demo:  http://arieh.github.com/mootools-count
