@@ -39,12 +39,12 @@ function $count(obj){
     if (!obj) return 0;
 	
 	switch($type(obj)){
-        case 'number'  : return obj; break;
+        case 'number'  : return obj; 
         
         case 'function':
-            return (function(){}+"" == obj+"" || obj==$empty) ? 0 : 1; break;
+            return ((obj+"").split('{')[1].test(/[\w]+/) ? 0 : 1;
             
-        case 'object'  : return $H(obj).getLength(); break;
+        case 'object'  : return $H(obj).getLength(); 
         
         case 'window'  :
         case 'document':
@@ -54,5 +54,5 @@ function $count(obj){
     return (obj.length) ?
         obj.length :
         ($type(+obj)) ? +obj : 1;
-}
-
+};
+})();
