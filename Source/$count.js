@@ -36,23 +36,22 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE 
 */
 function $count(obj){
-    if (!obj) return 0;
+  if (!obj) return 0;
 	
 	switch($type(obj)){
-        case 'number'  : return obj; 
+      case 'number'  : return obj; 
         
-        case 'function':
-            return (obj+"").split('{')[1].test(/[\w]+/) ? 0 : 1;
+      case 'function':
+          return (obj+"").split('{')[1].test(/[\w]+/) ? 0 : 1;
             
-        case 'object'  : return $H(obj).getLength(); 
+      case 'object'  : return $H(obj).getLength(); 
         
-        case 'window'  :
-        case 'document':
-        case 'element' : return obj.getChildren().length;
-    }
+      case 'window'  :
+      case 'document':
+      case 'element' : return obj.getChildren().length;
+  }
 	
-    return (obj.length) ?
-        obj.length :
-        ($type(+obj)) ? +obj : 1;
+  return ((obj.length) ?
+      obj.length :
+      ($type(+obj)) ? +obj : 1);
 };
-})();
