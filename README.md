@@ -1,6 +1,6 @@
 $count
 ========
-A generic method to check the length of any type of variable.
+A generic method to check the length of any type of variable. It will return a numeric representation of any JS type.
 
 
 How to use
