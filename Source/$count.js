@@ -42,7 +42,7 @@ function $count(obj){
         case 'number'  : return obj; 
         
         case 'function':
-            return ((obj+"").split('{')[1].test(/[\w]+/) ? 0 : 1;
+            return (obj+"").split('{')[1].test(/[\w]+/) ? 0 : 1;
             
         case 'object'  : return $H(obj).getLength(); 
         
