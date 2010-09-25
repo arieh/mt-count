@@ -44,13 +44,12 @@ function $count(obj){
       case 'function':
           return (obj+"").split('{')[1].test(/[\w]+/) ? 1 : 0;
             
-      case 'object' : {
+      case 'object' : 
         if (obj['getLength']) return obj.getLength();
         
         var len = 0;
         for (var f in obj) if (obj.hasOwnProperty(f)) len++;
         return len;
-      },
         
       case 'window'  :
       case 'document':
