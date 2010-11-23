@@ -38,7 +38,7 @@ THE SOFTWARE
 function $count(obj){
   if (!obj) return 0;
 	
-	switch($type(obj)){
+	switch(typeOf(obj)){
       case 'number'  : return obj; 
         
       case 'function':
@@ -58,5 +58,5 @@ function $count(obj){
 	
   return ((obj.length) ?
       obj.length :
-      ($type(+obj)) ? +obj : 1);
+      (typeOf(+obj)) ? +obj : 1);
 };
