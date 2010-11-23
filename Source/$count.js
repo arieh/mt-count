@@ -8,7 +8,7 @@ authors:
 - Arieh Glazer
 
 requires:
-- core/1.2.4 : [Core]
+- core/1.3 : [Core]
 
 provides: [$count]
 
