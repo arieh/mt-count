@@ -47,9 +47,7 @@ function $count(obj){
       case 'object' : 
         if (obj['getLength']) return obj.getLength();
         
-        var len = 0;
-        for (var f in obj) if (obj.hasOwnProperty(f)) len++;
-        return len;
+        return Object.getLength(obj);
         
       case 'window'  :
       case 'document':
